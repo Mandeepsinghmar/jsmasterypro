@@ -1,7 +1,11 @@
-import '../styles/globals.css'
+import '../styles/globals.css';
+import LeftSidebar from '../components/LeftSidebar';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+const MyApp = ({ Component, pageProps }) => (
+  <div className="flex">
+    <LeftSidebar />
+    <Component {...pageProps} />
+  </div>
+);
 
-export default MyApp
+export default MyApp;
