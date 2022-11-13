@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import LeftSidebar from '../components/LeftSidebar';
 
 const MyApp = ({ Component, pageProps }) => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   useEffect(() => {
     window.addEventListener('resize', () => {
