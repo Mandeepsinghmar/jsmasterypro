@@ -1,29 +1,34 @@
 import React from 'react';
 
-const profile = () => (
-  <div className="w-full ml-[240px] h-full bg-pro-black-1 text-white ">
-    <img className="h-[240px] w-full" src="/assets/bg.png" />
+const Profile = () => (
+  <div className=" bg-pro-black-1 text-white ">
+    <img className="h-[100px] xl:h-[240px] w-full" src="/assets/bg.png" />
     <div className="px-8">
       <div className="flex items-center justify-between w-full">
-        <div className="flex gap-6 mt-6 ">
-          <div className="relative -mt-16">
-            <img className=" rounded-full border-4 border-white" src="/assets/demo-user.png" />
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="absolute bottom-4 w-8 rounded-full bg-transparent h-8 text-blue-600 right-0">
-              <path fillRule="evenodd" d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.491 4.491 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.491 4.491 0 01-1.307 3.497 4.491 4.491 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.49 4.49 0 01-3.498-1.306 4.491 4.491 0 01-1.307-3.498A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 011.307-3.497 4.49 4.49 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clipRule="evenodd" />
-            </svg>
+        <div className="flex flex-col md:flex-row gap-6 mt-6 ">
+          <div className="flex justify-between">
+            <div className="relative -mt-16">
+              <img className=" rounded-full h-24 w-24 lg:h-40 lg:w-40 border-4 border-white" src="/assets/demo-user.png" />
+              <img src="/assets/verifiedtick.svg" className=" absolute bottom-4 w-6 h-6 md:w-8 rounded-full md:h-8 text-blue-600 -right-1 md:right-0" />
+
+            </div>
+            <div className=" gap-4 flex flex-col sm:hidden -mt-16 -mr-4">
+              <img className="h-8 w-8 cursor-pointer self-end" src="/assets/dot.png" />
+              <button type="button" className="rounded-lg bg-white  text-pro-black-1 px-3 py-2 font-semibold">view portfolio</button>
+            </div>
           </div>
 
-          <div>
-            <p className="font-semibold text-[32px]">Santiago Laight</p>
-            <p className="text-pro-white-800">I'm a Full-Stack Developer based in Warsaw, Poland.</p>
+          <div className="-mt-4 md:-mt-0">
+            <p className="font-semibold text-xl xl:text-[32px]">Santiago Laight</p>
+            <p className="text-pro-white-800 mt-1">I'm a Full-Stack Developer based in Warsaw, Poland.</p>
           </div>
         </div>
-        <div className="flex gap-3">
+        <div className=" gap-3 hidden sm:flex">
           <img className="h-10 w-10 cursor-pointer" src="/assets/dot.png" />
-          <button type="button" className="rounded-lg bg-white h-10 text-pro-black-1 px-4 py-2 font-semibold">view portfolio</button>
+          <button type="button" className="rounded-lg bg-white lg:h-10 text-pro-black-1 px-4 py-2 font-semibold">view portfolio</button>
         </div>
       </div>
-      <div className="flex gap-24 mt-10 border-b-[1px] border-pro-black-400 pb-8">
+      <div className="flex flex-wrap lg:flex-nowrap gap-10 lg:gap-24 mt-10 border-b-[1px] border-pro-black-400 pb-8">
         <div className=" space-y-5">
           <div className="flex flex-col gap-2">
             <p className="text-pro-white-400 text-sm">Location</p>
@@ -78,9 +83,9 @@ const profile = () => (
           <button type="button" className="text-blue-500 text-sm font-semibold mt-5">Read more</button>
         </div>
       </div>
-      <div className="flex gap-10 py-8">
+      <div className="flex flex-col lg:flex-row justify-center w-full gap-10 py-8">
         <p className="font-semibold text-xl">Some of my recent work.</p>
-        <div className="flex gap-6">
+        <div className="flex flex-wrap gap-6">
           <img className="h-[256px] w-[400px]" src="/assets/project1.png" />
           <img className="h-[256px] w-[400px]" src="/assets/project2.png" />
 
@@ -92,4 +97,4 @@ const profile = () => (
   </div>
 );
 
-export default profile;
+export default Profile;

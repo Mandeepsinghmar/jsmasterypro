@@ -27,6 +27,7 @@ module.exports = {
         'pro-white-800': '#D0DFFF',
         'pro-white-400': '#A3B3BC',
         'pro-blue-400': '#2190FF',
+        'pro-red': '#FF6252',
       },
       boxShadow: {
         'pro-dark': '0px 3px 20px rgba(28, 33, 41, 0.3)',
