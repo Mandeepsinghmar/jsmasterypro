@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
+import { links } from '../data';
 
 const LeftSidebar = ({ setIsSidebarOpen, isSidebarOpen }) => {
   const router = useRouter();
@@ -25,71 +26,29 @@ const LeftSidebar = ({ setIsSidebarOpen, isSidebarOpen }) => {
 
         </div>
         <div className="w-full px-4 mt-5 space-y-4">
-          <Link href="/" className={`flex gap-3 rounded-lg ${isSidebarOpen ? 'justify-start px-5' : 'justify-center'} py-3 items-center  ${router.pathname === '/' && 'bg-pro-blue-400'}`}>
-            {
-            (router.pathname === '/') ? <img src="/assets/home_white.svg" alt="home" /> : <img src="/assets/home_gray.svg" alt="home" />
-            }
-            <p className={`font-medium ${isSidebarOpen ? 'block' : 'hidden'} text-sm ${router.pathname === '/' ? 'text-white' : 'text-pro-white-800'}`}>Home</p>
-          </Link>
-          <Link href="/profile" className={`flex gap-3 ${isSidebarOpen ? 'justify-start px-5' : 'justify-center'} rounded-lg items-center py-3 ${router.pathname === '/profile' && 'bg-pro-blue-400'}`}>
-            {
-            (router.pathname === '/profile') ? <img src="/assets/profile_white.svg" alt="profile" /> : <img src="/assets/profile_gray.svg" alt="orders" />
-            }
-            <p className={`font-medium ${isSidebarOpen ? 'block' : 'hidden'}  text-sm ${router.pathname === '/profile' ? 'text-white' : 'text-pro-white-800'}`}>Profile</p>
+          {
+            links?.map((item, idx) => (
+              <Link key={idx} href={item.link} className={`flex justify-center xl:justify-between items-center rounded-lg  ${router.pathname === item.link && 'bg-pro-blue-400'}`}>
+                <div className={`flex gap-3 ${isSidebarOpen ? 'px-5' : 'px-4 justify-center'} py-3 items-center text-white`}>
 
-          </Link>
-          <Link href="/orders" className={`flex justify-center xl:justify-between items-center rounded-lg  ${router.pathname === '/orders' && 'bg-pro-blue-400'}`}>
-            <div className={`flex gap-3 ${isSidebarOpen ? 'px-5' : 'px-4 justify-center'} py-3 items-center text-white`}>
-              <div className="relative">
+                  {
+            (router.pathname === item.link) ? <img src={`/assets/${item.name}_white.svg`} alt={item.name} /> : <img src={`/assets/${item.name}_gray.svg`} alt={item.name} />
+            }
+                  <p className={`font-medium ${isSidebarOpen ? 'block' : 'hidden'} text-sm capitalize ${router.pathname === item.link ? 'text-white' : 'text-pro-white-800'}`}>{item.name}</p>
+                </div>
                 {
-            (router.pathname === '/orders') ? <img src="/assets/orders_white.svg" alt="orders" /> : <img src="/assets/orders_gray.svg" alt="orders" />
-            }
-                <div className="bg-pro-red absolute -right-1 top-2 rounded-full h-[6px] w-[6px]" />
-              </div>
-
-              <p className={`font-medium ${isSidebarOpen ? 'block' : 'hidden'} text-sm ${router.pathname === '/orders' ? 'text-white' : 'text-pro-white-800'}`}>Orders</p>
-
-            </div>
-            <p className={`text-xs ${isSidebarOpen ? 'block' : 'hidden'} rounded-full py-1 px-2 bg-pro-black-400 mr-4 opacity-30`}>5</p>
-          </Link>
-          <Link href="/schedules" className={`flex gap-3 rounded-lg items-center ${isSidebarOpen ? 'justify-start px-5' : 'justify-center'} py-3 ${router.pathname === '/schedules' && 'bg-pro-blue-400'}`}>
-            {
-            (router.pathname === '/schedules') ? <img src="/assets/schedules_white.svg" alt="schedules" /> : <img src="/assets/schedules_gray.svg" alt="schedules" />
-            }
-
-            <p className={`font-medium ${isSidebarOpen ? 'block' : 'hidden'} text-sm ${router.pathname === '/schedules' ? 'text-white' : 'text-pro-white-800'}`}>Schedules</p>
-
-          </Link>
-          <Link href="/messages" className={`flex justify-center xl:justify-between items-center rounded-lg  ${router.pathname === '/messages' && 'bg-pro-blue-400'}`}>
-
-            <div className={`flex gap-3 ${isSidebarOpen ? 'px-5' : 'px-4 justify-center'} py-3 items-center text-white`}>
-
-              {
-            (router.pathname === '/messages') ? <img src="/assets/messages_white.svg" alt="messages" /> : <img src="/assets/messages_gray.svg" alt="messages" />
-            }
-              <p className={`font-medium ${isSidebarOpen ? 'block' : 'hidden'} text-sm ${router.pathname === '/messages' ? 'text-white' : 'text-pro-white-800'}`}>Messages</p>
-
-            </div>
-            <p className={`text-xs ${isSidebarOpen ? 'block' : 'hidden'} rounded-full py-1 px-2 bg-pro-black-400 opacity-30 mr-4`}>3</p>
-          </Link>
-
-          <Link href="/inbox" className={`flex gap-3 rounded-lg items-center ${isSidebarOpen ? 'justify-start px-5' : 'justify-center'} py-3 ${router.pathname === '/inbox' && 'bg-pro-blue-400'}`}>
-            {
-            (router.pathname === '/inbox') ? <img src="/assets/inbox_white.svg" alt="inbox" /> : <img src="/assets/inbox_gray.svg" alt="inbox" />
-            }
-            <p className={`font-medium text-sm ${isSidebarOpen ? 'block' : 'hidden'} ${router.pathname === '/inbox' ? 'text-white' : 'text-pro-white-800'}`}>Inbox</p>
-          </Link>
-          <Link href="/analytics" className={`flex gap-3 rounded-lg items-center ${isSidebarOpen ? 'justify-start px-5' : 'justify-center'} py-3 ${router.pathname === '/analytics' && 'bg-pro-blue-400'}`}>
-            {
-            (router.pathname === '/analytics') ? <img src="/assets/analytics_white.svg" alt="analytics" /> : <img src="/assets/analytics_gray.svg" alt="analytics" />
-            }
-            <p className={`font-medium ${isSidebarOpen ? 'block' : 'hidden'} text-sm ${router.pathname === '/analytics' ? 'text-white' : 'text-pro-white-800'}`}>Analytics</p>
-          </Link>
-
+                  item.notify && (
+                  <p className={`text-xs ${isSidebarOpen ? 'block' : 'hidden'} rounded-full py-1 px-2 bg-pro-black-400 opacity-30 mr-4`}>3</p>
+                  )
+                }
+              </Link>
+            ))
+          }
         </div>
       </div>
       <div className="flex flex-col items-center w-full">
         <div className="w-full px-4  space-y-2">
+
           <div className="border-t-[1px] border-pro-black-400">
             <Link href="/news" className={`flex mt-3 gap-3 rounded-lg items-center ${isSidebarOpen ? 'justify-start px-5' : 'justify-center'} py-3 ${router.pathname === '/news' && 'bg-pro-blue-400'}`}>
 
